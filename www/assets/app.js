@@ -9,4 +9,5 @@ import 'bootstrap.native';
 import './js/fa';
 import './js/naja';
 import './js/datatables';
+import './js/customNetteForms';
 import './js/main';

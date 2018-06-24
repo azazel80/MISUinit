@@ -1,8 +1,4 @@
-# MISUinit
-
----
-
-Customized initial Nette project.
+# MISUinit - Customized initial Nette project.
 
 > The entire project is free of dependence on jQuery and uses native .js libraries.
 

@@ -1,0 +1,30 @@
+{block content}
+	<div class="container">
+		{snippet snButton}
+			{if $back}
+				<a n:href="Homepage:default" role="button" class="ajax btn btn-secondary float-right">Zpět</a>
+			{else}
+				<a n:href="test!" role="button" class="ajax btn btn-primary float-right">Klikni ZDE</a>
+			{/if}
+		{/snippet}
+	</div>
+	<div class="container-fluid fixed-bottom">
+		<footer class="row py-3">
+			<div class="col text-center">
+				<span class="copyright">2011 - 2018 &copy; Miroslav Suchánek, Všechna práva vyhrazena.</span>
+			</div>
+		</footer>
+	</div>
+{/block}
+
+{block flashBlock}
+	<div class="container">
+		<div class="row my-2">
+			<div class="col">
+				{snippet snFlash}
+					<div n:foreach="$flashes as $flash" role="alert" class="alert alert-{$flash->type}">{$flash->message}</div>
+				{/snippet}
+			</div>
+		</div>
+	</div>
+{/block}

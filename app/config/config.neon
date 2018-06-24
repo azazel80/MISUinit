@@ -1,0 +1,22 @@
+extensions:
+	dbal: Nextras\Dbal\Bridges\NetteDI\DbalExtension
+	orm: Nextras\Orm\Bridges\NetteDI\OrmExtension
+
+parameters:
+
+
+application:
+    errorPresenter: Front:Error
+
+session:
+	expiration: 14 days
+
+orm:
+	model: App\Orm\Orm
+
+services:
+	router: App\RouterFactory::createRouter
+
+includes:
+    - ../module/Back/config/config.neon
+    - ../module/Front/config/config.neon

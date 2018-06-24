@@ -1,0 +1,26 @@
+# Nette
+log/*
+temp/*
+
+# Git
+!.gitignore
+/.git
+
+# Apache
+!.htaccess
+
+# App
+/app/config/config.local.neon
+/www/dist
+
+# Composer
+/vendor
+
+# Node
+/node_modules
+
+# Yarn
+/offline
+
+# PhpStorm
+/.idea

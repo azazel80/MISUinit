@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-Compatible" content="ie=edge">
+	<meta name="description" content="TODO">
+	<meta name="author" content="Miroslav Suchánek">
+	<meta name="robots" content="noindex, nofollow">
+  	<title>{ifset title}{include title|stripHtml} | {/ifset}MISUinit - initial project</title>
+	<link rel="icon" type="image/png" href="{$basePath}/favicon.png"/>
+	<link rel="stylesheet" href="{$basePath}/dist/app.bundle.css">
+	{block head}{/block}
+</head>
+<body>
+	{ifset flashBlock}{include flashBlock}{/ifset}
+	{include content}
+
+	{block scripts}
+		<script src="{$basePath}/dist/app.bundle.js"></script>
+	{/block}
+</body>
+</html>

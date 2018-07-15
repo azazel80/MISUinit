@@ -6,6 +6,7 @@ import './css/style.css';
 
 // These assets are extracted to [name].bundle.js with Webpack. See more on webpack.config.js
 import 'materialize-css';
+import './js/customNetteForms';
 import './js/naja';
 import './js/datatables';
 import './js/main';

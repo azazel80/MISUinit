@@ -25,13 +25,9 @@ class HomepagePresenter extends BasePresenter
         $form = new Form();
 
         $form->addText('username', 'Uživatelské jméno')
-            ->setRequired('Uživatelské jméno je povinné')
-            ->setAttribute('placeholder', 'Zadejte uživatelské jméno');
+            ->setRequired('Uživatelské jméno je povinné');
 
         $form->addEmail('email', 'E-mail')
-            ->setHtmlAttribute('placeholder', 'Zadejte Váš e-mail')
-            ->setOption('description', Html::el('span')->setHtml('Zadejte zde platný e-mail (<strong>nazev@domena.tld</strong>).'))
-            ->setEmptyValue('@')
             ->addFilter(function ($email) {
                 return Strings::lower($email);
             })
@@ -47,7 +43,6 @@ class HomepagePresenter extends BasePresenter
         };
 
         $form->onSubmit[] = function (Form $form) {
-            // This method in invoked always
             $this->redrawControl('Error');
             $this->redrawControl('Ok');
         };

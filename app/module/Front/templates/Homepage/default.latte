@@ -1,39 +1,48 @@
 {block content}
 	<div class="container">
 		<div class="row">
-			<div class="col">
-				<h1 class="text-muted my-3">Nette 2.4 s integrovanými frontend nástroji</h1>
-				<p class="lead">
+			<div class="col s12 section">
+				<h1 class="grey-text">Nette 2.4 s integrovanými frontend nástroji</h1>
+				<p class="flow-text">
 					Všechny integrované <code>JS</code> knihovny jsou zbaveny závislosti na <code>jQuery</code>.
 				</p>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col">
-				<div class="jumbotron">
-					<h2 class="text-primary">Snippety</h2>
-					<span class="lead">Použita knihovna <code>Naja.js</code> <em>(náhrada za nette.ajax.js)</em>.</span>
+			<div class="col s12 section">
+				<div class="card-panel">
+					<h3 class="blue-text">Snippety</h3>
+					<span class="flow-text">Použita knihovna <code>Naja.js</code> <em>(náhrada za nette.ajax.js)</em>.</span>
 					<hr>
 					<div class="row">
-						<div class="col" n:snippet="testSnippet">
-							<h3>Kliknutím na tlačítko aktualizujete časové razítko <a class="ajax btn btn-success btn-sm" n:href="redraw!">AKTUALIZOVAT</a></h3>
-							Časové razítko: <span class="text-success">{$datetime|date:'d.m.Y H:i:s'}</span> &nbsp;&nbsp;&nbsp; Unix formát: <span class="text-success">{$datetime|date:'U'}</span>
+						<div class="col s12" n:snippet="testSnippet">
+							<h4>Kliknutím na tlačítko aktualizujete časové razítko <a class="ajax btn btn-small" n:href="redraw!">AKTUALIZOVAT</a></h4>
+							Časové razítko: <span class="teal-text">{$datetime|date:'d.m.Y H:i:s'}</span> &nbsp;&nbsp;&nbsp; Unix formát: <span class="teal-text">{$datetime|date:'U'}</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col">
-				<div class="jumbotron">
-					<h2 class="text-primary">Datová tabulka s vyhledáváním, řazením a stránkováním</h2>
-					<span class="lead">Použita knihovna <code>vanillaDataTables.js</code>.</span>
+			<div class="col s12 section">
+				<div class="card-panel">
+					<h3 class="blue-text">Datová tabulka s vyhledáváním, řazením a stránkováním</h3>
+					<span class="flow-text">Použita knihovna <code>vanillaDataTables.js</code>.</span>
 					<hr>
 					<div class="row">
-						<div class="col">
-							<table class="table table-bordered table-striped" id="example">
+						<div class="col s12">
+							<table class="striped highlight" id="example">
 								<thead><tr><th>Jméno</th><th>E-mail</th></tr></thead>
 								<tbody>
+								<tr><td>Jan Novák</td><td>jan@novak.cz</td></tr>
+								<tr><td>Renata Malá</td><td>renata@mala.com</td></tr>
+								<tr><td>Dan Renek</td><td>dan@renek.net</td></tr>
+								<tr><td>Jan Novák</td><td>jan@novak.cz</td></tr>
+								<tr><td>Renata Malá</td><td>renata@mala.com</td></tr>
+								<tr><td>Dan Renek</td><td>dan@renek.net</td></tr>
+								<tr><td>Jan Novák</td><td>jan@novak.cz</td></tr>
+								<tr><td>Renata Malá</td><td>renata@mala.com</td></tr>
+								<tr><td>Dan Renek</td><td>dan@renek.net</td></tr>
 								<tr><td>Jan Novák</td><td>jan@novak.cz</td></tr>
 								<tr><td>Renata Malá</td><td>renata@mala.com</td></tr>
 								<tr><td>Dan Renek</td><td>dan@renek.net</td></tr>
@@ -45,42 +54,57 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col">
-				<div class="jumbotron">
-					<h2 class="text-primary">Ajaxový formulář s JS validací</h2>
-					<span class="lead">Použita knihovna <code>netteForms.js</code> s drobnou úpravou funkce <code>Nette.showFormErrors</code>, aby namísto klasického <code>alert(...)</code> zobrazovala výsledky validace v designu Bootstrap 4.</span>
+			<div class="col s12 section">
+				<div class="card-panel">
+					<h3 class="blue-text">Ajaxový formulář s JS validací</h3>
+					<span class="flow-text">Formulář vytvořen pomocí <code>Materialize</code> css frameworku.</span>
 					<hr>
-					<form n:name="userForm" class="needs-validation ajax">
-						{snippet Ok}
-							{php $form = $presenter['userForm']}
-							{if $form->isSuccess()}
-								<div class="alert alert-success">
-									<h4 class="alert-heading">Form OK!</h4>
-									<hr>
-									<p>USERNAME: {$form->values->username} &nbsp;&nbsp;&nbsp; E-MAIL: {$form->values->email}</p>
+					<div class="section">
+						<form n:name="userForm" class="ajax">
+							<div class="row">
+								<div class="col s12">
+									{snippet Ok}
+										{php $form = $presenter['userForm']}
+										{if $form->isSuccess()}
+											<div class="card-panel green accent-1">
+												<p>USERNAME: {$form->values->username} &nbsp;&nbsp;&nbsp; E-MAIL: {$form->values->email}</p>
+											</div>
+										{/if}
+									{/snippet}
+
+									{snippet Error}
+										{php $form = $presenter['userForm']}
+										<div class="card-panel red accent-1" n:foreach="$form->getErrors() as $error">{$error}</div>
+									{/snippet}
 								</div>
-							{/if}
-						{/snippet}
+							</div>
 
-						{snippet Error}
-							{php $form = $presenter['userForm']}
-							<div class="alert alert-danger" n:foreach="$form->getErrors() as $error">{$error}</div>
-						{/snippet}
+							<div class="row">
+								<div class="col s6">
+									<div n:class="input-field, $form['username']->required ? required">
+										<i class="material-icons prefix">account_box</i>
+										<input id="username" n:name="username" class="validate">
+										<span class="helper-text" data-error="Uživatelské jméno je povinné"></span>
+										{label username /}
+									</div>
+								</div>
+								<div class="col s6">
+									<div n:class="input-field, $form['email']->required ? required">
+										<i class="material-icons prefix">email</i>
+										<input id="password" n:name="email" class="validate">
+										<span class="helper-text" data-error="E-mail je povinný a musí být platným e-mailem"></span>
+										{label email /}
+									</div>
+								</div>
+							</div>
 
-						<div n:class="form-group, $form['username']->required ? required">
-							{label username /}
-							<input n:name="username" class="form-control">
-							<div class="invalid-feedback"></div>
-							<small class="form-text text-muted" n:ifcontent>{$form['username']->getOption('description')}</small>
-						</div>
-						<div n:class="form-group, $form['email']->required ? required">
-							{label email /}
-							<input n:name="email" class="form-control">
-							<div class="invalid-feedback"></div>
-							<small class="form-text text-muted" n:ifcontent>{$form['email']->getOption('description')}</small>
-						</div>
-						<button class="btn btn-primary" type="submit" n:name="send">ODESLAT</button>
-					</form>
+							<div class="row">
+								<div class="col s12">
+									<button class="btn right" type="submit" n:name="send">ODESLAT</button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

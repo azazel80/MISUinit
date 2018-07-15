@@ -18,8 +18,8 @@
 ## Integrated frontend pack
 
 - Webpack 4
-- Bootstrap 4
-- FontAwesome 5
+- Bootstrap 4 / Materialize (branch dev-materialize)
+- FontAwesome 5 / Material icons (branch dev-materialize)
 - DataTables
 - NetteForms
 - Naja

@@ -52,12 +52,6 @@ module.exports = {
                 use: [
                     'file-loader?name=images/[name].[ext]',
                 ]
-            },
-            {
-                test: /bootstrap\.native/,
-                use: {
-                    loader: 'bootstrap.native-loader'
-                }
             }
         ]
     },
